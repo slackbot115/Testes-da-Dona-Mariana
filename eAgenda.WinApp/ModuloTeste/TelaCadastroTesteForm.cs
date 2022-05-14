@@ -101,6 +101,8 @@ namespace eAgenda.WinApp.ModuloTeste
 
         private void btnGerarQuestoes_Click(object sender, EventArgs e)
         {
+            listQuestoes.Items.Clear();
+
             int countNumeroQuestao = 1;
 
             var questoes = repositorioQuestao.SelecionarTodos()

@@ -5,6 +5,7 @@ using eAgenda.Dominio.ModuloTeste;
 using eAgenda.WinApp.Compartilhado;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using iTextSharp.text.pdf.draw;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -155,13 +156,14 @@ namespace eAgenda.WinApp.ModuloTeste
 
             Paragraph tituloProva = new Paragraph(testeSelecionada.Titulo, fonte);
             tituloProva.Alignment = Element.ALIGN_CENTER;
-            
-            Paragraph disciplinaProva = new Paragraph($"Disciplina: {testeSelecionada.Disciplina.Nome}", fonte);
-            Paragraph materiaProva = new Paragraph($"Matéria: {testeSelecionada.Materia.Nome}", fonte);
+
+            Chunk glue = new Chunk(new VerticalPositionMark());
+            Paragraph informacoesProva = new Paragraph($"Disciplina: {testeSelecionada.Disciplina.Nome}", fonte);
+            informacoesProva.Add(new Chunk(glue));
+            informacoesProva.Add($"Matéria: {testeSelecionada.Materia.Nome}");
 
             document.Add(tituloProva);
-            document.Add(disciplinaProva);
-            document.Add(materiaProva);
+            document.Add(informacoesProva);
 
             for (int i = 0; i < testeSelecionada.Questoes.Count; i++)
             {
@@ -193,5 +195,36 @@ namespace eAgenda.WinApp.ModuloTeste
 
             document.Close();
         }
+
+        public void DuplicarTeste()
+        {
+            Teste testeSelecionada = ObtemTesteSelecionada();
+            Teste testeDuplicado = (Teste) testeSelecionada.Clone();
+
+            if (testeSelecionada == null)
+            {
+                MessageBox.Show("Selecione um teste primeiro",
+                "Duplicador de Testes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            var disciplinas = repositorioDisciplina.SelecionarTodos();
+            var materias = repositorioMateria.SelecionarTodos();
+            var questoes = repositorioQuestao.SelecionarTodos();
+
+            TelaCadastroTesteForm tela = new TelaCadastroTesteForm(disciplinas, materias, repositorioQuestao);
+
+            tela.Teste = testeDuplicado;
+
+            tela.GravarRegistro = repositorioTeste.Inserir;
+
+            DialogResult resultado = tela.ShowDialog();
+
+            if (resultado == DialogResult.OK)
+            {
+                CarregarQuestoes();
+            }
+        }
+
     }
 }

@@ -48,13 +48,13 @@
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.btnAgrupar = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnDuplicar = new System.Windows.Forms.ToolStripButton();
+            this.btnGerarPdf = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.labelTipoCadastro = new System.Windows.Forms.ToolStripLabel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.labelRodape = new System.Windows.Forms.ToolStripStatusLabel();
             this.panelRegistros = new System.Windows.Forms.Panel();
-            this.btnDuplicar = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnGerarPdf = new System.Windows.Forms.ToolStripButton();
             this.menu.SuspendLayout();
             this.toolbox.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -246,6 +246,37 @@
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(6, 41);
             // 
+            // btnDuplicar
+            // 
+            this.btnDuplicar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnDuplicar.Image = ((System.Drawing.Image)(resources.GetObject("btnDuplicar.Image")));
+            this.btnDuplicar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnDuplicar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDuplicar.Name = "btnDuplicar";
+            this.btnDuplicar.Size = new System.Drawing.Size(29, 38);
+            this.btnDuplicar.Text = "Duplicar um teste";
+            this.btnDuplicar.ToolTipText = "Duplicar um teste";
+            this.btnDuplicar.Click += new System.EventHandler(this.btnDuplicar_Click);
+            // 
+            // btnGerarPdf
+            // 
+            this.btnGerarPdf.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnGerarPdf.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnGerarPdf.Image = ((System.Drawing.Image)(resources.GetObject("btnGerarPdf.Image")));
+            this.btnGerarPdf.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnGerarPdf.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnGerarPdf.Name = "btnGerarPdf";
+            this.btnGerarPdf.Padding = new System.Windows.Forms.Padding(5);
+            this.btnGerarPdf.Size = new System.Drawing.Size(38, 38);
+            this.btnGerarPdf.Text = "Gerar PDF do Teste";
+            this.btnGerarPdf.ToolTipText = "Gerar PDF do Teste";
+            this.btnGerarPdf.Click += new System.EventHandler(this.btnGerarPdf_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 41);
+            // 
             // labelTipoCadastro
             // 
             this.labelTipoCadastro.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
@@ -279,35 +310,6 @@
             this.panelRegistros.Name = "panelRegistros";
             this.panelRegistros.Size = new System.Drawing.Size(1062, 715);
             this.panelRegistros.TabIndex = 3;
-            // 
-            // btnDuplicar
-            // 
-            this.btnDuplicar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnDuplicar.Image = ((System.Drawing.Image)(resources.GetObject("btnDuplicar.Image")));
-            this.btnDuplicar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnDuplicar.Name = "btnDuplicar";
-            this.btnDuplicar.Size = new System.Drawing.Size(29, 38);
-            this.btnDuplicar.Text = "toolStripButton1";
-            this.btnDuplicar.ToolTipText = " ";
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 41);
-            // 
-            // btnGerarPdf
-            // 
-            this.btnGerarPdf.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnGerarPdf.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnGerarPdf.Image = ((System.Drawing.Image)(resources.GetObject("btnGerarPdf.Image")));
-            this.btnGerarPdf.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btnGerarPdf.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnGerarPdf.Name = "btnGerarPdf";
-            this.btnGerarPdf.Padding = new System.Windows.Forms.Padding(5);
-            this.btnGerarPdf.Size = new System.Drawing.Size(38, 38);
-            this.btnGerarPdf.Text = "toolStripButton2";
-            this.btnGerarPdf.ToolTipText = " ";
-            this.btnGerarPdf.Click += new System.EventHandler(this.btnGerarPdf_Click);
             // 
             // TelaPrincipalForm
             // 

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace eAgenda.Dominio.ModuloTeste
 {
-    public class Teste : EntidadeBase<Teste>
+    public class Teste : EntidadeBase<Teste>, ICloneable
     {
         public int NumeroQuestoes { get; set; }
         public string Titulo { get; set; }
@@ -24,6 +24,16 @@ namespace eAgenda.Dominio.ModuloTeste
             Data = DateTime.Now;
         }
 
+        private Teste(Teste registro)
+        {
+            Titulo = registro.Titulo;
+            Disciplina = registro.Disciplina;
+            Materia = registro.Materia;
+            Data = DateTime.Now;
+            Questoes = registro.Questoes;
+            NumeroQuestoes = registro.NumeroQuestoes;
+        }
+
         public override void Atualizar(Teste registro)
         {
             Titulo = registro.Titulo;
@@ -32,6 +42,11 @@ namespace eAgenda.Dominio.ModuloTeste
             Data = registro.Data;
             Questoes = registro.Questoes;
             NumeroQuestoes = registro.NumeroQuestoes;
+        }
+
+        public object Clone()
+        {
+            return new Teste(this);
         }
     }
 }
