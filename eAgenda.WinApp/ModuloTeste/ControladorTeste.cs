@@ -133,16 +133,14 @@ namespace eAgenda.WinApp.ModuloTeste
 
         public void GerarPdf()
         {
-            //Teste testeSelecionada = ObtemTesteSelecionada();
+            Teste testeSelecionada = ObtemTesteSelecionada();
 
-            //if (testeSelecionada == null)
-            //{
-            //    MessageBox.Show("Selecione um teste primeiro",
-            //    "Gerador de PDF", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            //    return;
-            //}
-
-            var testeSelecionada = repositorioTeste.SelecionarPorNumero(2);
+            if (testeSelecionada == null)
+            {
+                MessageBox.Show("Selecione um teste primeiro",
+                "Gerador de PDF", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
 
             string arquivo = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\arquivo.pdf";
             if(File.Exists(arquivo))
@@ -178,7 +176,7 @@ namespace eAgenda.WinApp.ModuloTeste
 
             document.NewPage();
             Paragraph gabarito = new Paragraph("Gabarito", fonte);
-            tituloProva.Alignment = Element.ALIGN_CENTER;
+            gabarito.Alignment = Element.ALIGN_CENTER;
             document.Add(gabarito);
 
             for (int i = 0; i < testeSelecionada.Questoes.Count; i++)

@@ -110,7 +110,7 @@ namespace eAgenda.WinApp
 
         private void btnGerarPdf_Click(object sender, EventArgs e)
         {
-            controladorTeste.GerarPdf();
+            ((ControladorTeste)controlador).GerarPdf();
         }
 
         private void ConfigurarBotoes(ConfiguracaoToolboxBase configuracao)
