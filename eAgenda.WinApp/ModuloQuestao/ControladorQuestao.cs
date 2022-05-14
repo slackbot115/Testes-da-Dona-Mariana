@@ -57,7 +57,7 @@ namespace eAgenda.WinApp.ModuloQuestao
             var disciplinas = repositorioDisciplina.SelecionarTodos();
             var materias = repositorioMateria.SelecionarTodos();
 
-            TelaCadastroQuestaoForm tela = new TelaCadastroQuestaoForm(disciplinas, materias);
+            TelaCadastroQuestaoForm tela = new TelaCadastroQuestaoForm(disciplinas, materias, questaoSelecionada);
 
             tela.Questao = questaoSelecionada;
 

@@ -33,6 +33,38 @@ namespace eAgenda.WinApp.ModuloQuestao
             }
         }
 
+        public TelaCadastroQuestaoForm(List<Disciplina> disciplinas, List<Materia> materias, Questao questao)
+        {
+            InitializeComponent();
+            CarregarDisciplinas(disciplinas);
+            CarregarMaterias(materias);
+
+            foreach (Alternativa alternativa in Alternativas)
+            {
+                listAlternativas.Items.Add(alternativa);
+            }
+
+            CarregarAlternativas(questao);
+        }
+
+        private void CarregarAlternativas(Questao questao)
+        {
+            foreach (Alternativa alternativa in questao.Alternativas)
+            {
+                if(alternativa.Correta)
+                    listAlternativas.Items.Add($"{alternativa.Letra}: {alternativa.Descricao} [CORRETA]");
+                else
+                    listAlternativas.Items.Add($"{alternativa.Letra}: {alternativa.Descricao}");
+
+                alternativasAdicionadas.Add(alternativa);
+            }
+
+            btnAdicionar.Enabled = false;
+            txtEnunciadoAlternativa.Enabled = false;
+            isCorreta.Enabled = false;
+            contadorLetra = 5;
+        }
+
         private void CarregarMaterias(List<Materia> materias)
         {
             comboMateria.Items.Clear();
@@ -80,6 +112,12 @@ namespace eAgenda.WinApp.ModuloQuestao
 
             var resultadoValidacao = GravarRegistro(questao);
 
+            if(contadorLetra != 5)
+            {
+                string erro = "Insira 5 alternativas";
+                TelaPrincipalForm.Instancia.AtualizarRodape(erro);
+                DialogResult = DialogResult.None;
+            }
             if (resultadoValidacao.IsValid == false)
             {
                 string erro = resultadoValidacao.Errors[0].ErrorMessage;
@@ -108,10 +146,20 @@ namespace eAgenda.WinApp.ModuloQuestao
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            //List<string> alternativas = Alternativas.Select(x => x.Descricao).ToList();
-
-            //if (alternativas.Count == 0 || alternativas.Contains(txtEnunciadoAlternativa.Text) == false)
-            //{
+            if (contadorLetra >= 4)
+            {
+                btnAdicionar.Enabled = false;
+                txtEnunciadoAlternativa.Enabled = false;
+                isCorreta.Enabled = false;
+            }
+            if (String.IsNullOrEmpty(txtEnunciadoAlternativa.Text))
+            {
+                string erro = "Não pode inserir uma alternativa vazia";
+                TelaPrincipalForm.Instancia.AtualizarRodape(erro);
+                DialogResult = DialogResult.None;
+            }
+            else
+            {
                 Alternativa alternativa = new Alternativa();
                 alternativa.Descricao = txtEnunciadoAlternativa.Text;
                 alternativa.Letra = letras[contadorLetra];
@@ -129,8 +177,7 @@ namespace eAgenda.WinApp.ModuloQuestao
                 alternativasAdicionadas.Add(alternativa);
                 isCorreta.Checked = false;
                 txtEnunciadoAlternativa.Text = String.Empty;
-            //}
-
+            }
         }
     }
 }
