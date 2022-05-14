@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaPrincipalForm));
             this.menu = new System.Windows.Forms.MenuStrip();
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tarefasMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.disciplinasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.matériasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.questõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.testesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolbox = new System.Windows.Forms.ToolStrip();
             this.btnInserir = new System.Windows.Forms.ToolStripButton();
             this.btnEditar = new System.Windows.Forms.ToolStripButton();
@@ -50,7 +52,9 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.labelRodape = new System.Windows.Forms.ToolStripStatusLabel();
             this.panelRegistros = new System.Windows.Forms.Panel();
-            this.testesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnDuplicar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnGerarPdf = new System.Windows.Forms.ToolStripButton();
             this.menu.SuspendLayout();
             this.toolbox.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -63,7 +67,8 @@
             this.cadastrosToolStripMenuItem});
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(929, 24);
+            this.menu.Padding = new System.Windows.Forms.Padding(7, 3, 0, 3);
+            this.menu.Size = new System.Drawing.Size(1062, 30);
             this.menu.TabIndex = 0;
             this.menu.Text = "menuStrip1";
             // 
@@ -76,37 +81,44 @@
             this.questõesToolStripMenuItem,
             this.testesToolStripMenuItem});
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
-            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
             this.cadastrosToolStripMenuItem.Text = "Cadastros";
             // 
             // tarefasMenuItem
             // 
             this.tarefasMenuItem.Name = "tarefasMenuItem";
             this.tarefasMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.tarefasMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tarefasMenuItem.Size = new System.Drawing.Size(163, 26);
             this.tarefasMenuItem.Text = "Tarefas";
             this.tarefasMenuItem.Click += new System.EventHandler(this.tarefasMenuItem_Click);
             // 
             // disciplinasToolStripMenuItem
             // 
             this.disciplinasToolStripMenuItem.Name = "disciplinasToolStripMenuItem";
-            this.disciplinasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.disciplinasToolStripMenuItem.Size = new System.Drawing.Size(163, 26);
             this.disciplinasToolStripMenuItem.Text = "Disciplinas";
             this.disciplinasToolStripMenuItem.Click += new System.EventHandler(this.disciplinasToolStripMenuItem_Click);
             // 
             // matériasToolStripMenuItem
             // 
             this.matériasToolStripMenuItem.Name = "matériasToolStripMenuItem";
-            this.matériasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.matériasToolStripMenuItem.Size = new System.Drawing.Size(163, 26);
             this.matériasToolStripMenuItem.Text = "Matérias";
             this.matériasToolStripMenuItem.Click += new System.EventHandler(this.matériasToolStripMenuItem_Click);
             // 
             // questõesToolStripMenuItem
             // 
             this.questõesToolStripMenuItem.Name = "questõesToolStripMenuItem";
-            this.questõesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.questõesToolStripMenuItem.Size = new System.Drawing.Size(163, 26);
             this.questõesToolStripMenuItem.Text = "Questões";
             this.questõesToolStripMenuItem.Click += new System.EventHandler(this.questõesToolStripMenuItem_Click);
+            // 
+            // testesToolStripMenuItem
+            // 
+            this.testesToolStripMenuItem.Name = "testesToolStripMenuItem";
+            this.testesToolStripMenuItem.Size = new System.Drawing.Size(163, 26);
+            this.testesToolStripMenuItem.Text = "Testes";
+            this.testesToolStripMenuItem.Click += new System.EventHandler(this.testesToolStripMenuItem_Click);
             // 
             // toolbox
             // 
@@ -124,10 +136,13 @@
             this.toolStripSeparator3,
             this.btnAgrupar,
             this.toolStripSeparator4,
+            this.btnDuplicar,
+            this.btnGerarPdf,
+            this.toolStripSeparator5,
             this.labelTipoCadastro});
-            this.toolbox.Location = new System.Drawing.Point(0, 24);
+            this.toolbox.Location = new System.Drawing.Point(0, 30);
             this.toolbox.Name = "toolbox";
-            this.toolbox.Size = new System.Drawing.Size(929, 41);
+            this.toolbox.Size = new System.Drawing.Size(1062, 41);
             this.toolbox.TabIndex = 1;
             this.toolbox.Text = "toolStrip1";
             // 
@@ -235,7 +250,7 @@
             // 
             this.labelTipoCadastro.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.labelTipoCadastro.Name = "labelTipoCadastro";
-            this.labelTipoCadastro.Size = new System.Drawing.Size(90, 38);
+            this.labelTipoCadastro.Size = new System.Drawing.Size(121, 38);
             this.labelTipoCadastro.Text = "[tipoCadastro]";
             // 
             // statusStrip1
@@ -243,44 +258,69 @@
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.labelRodape});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 587);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 786);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(929, 22);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 16, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(1062, 26);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // labelRodape
             // 
             this.labelRodape.Name = "labelRodape";
-            this.labelRodape.Size = new System.Drawing.Size(52, 17);
+            this.labelRodape.Size = new System.Drawing.Size(67, 20);
             this.labelRodape.Text = "[rodapé]";
             // 
             // panelRegistros
             // 
             this.panelRegistros.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelRegistros.Location = new System.Drawing.Point(0, 65);
+            this.panelRegistros.Location = new System.Drawing.Point(0, 71);
+            this.panelRegistros.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panelRegistros.Name = "panelRegistros";
-            this.panelRegistros.Size = new System.Drawing.Size(929, 522);
+            this.panelRegistros.Size = new System.Drawing.Size(1062, 715);
             this.panelRegistros.TabIndex = 3;
             // 
-            // testesToolStripMenuItem
+            // btnDuplicar
             // 
-            this.testesToolStripMenuItem.Name = "testesToolStripMenuItem";
-            this.testesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.testesToolStripMenuItem.Text = "Testes";
-            this.testesToolStripMenuItem.Click += new System.EventHandler(this.testesToolStripMenuItem_Click);
+            this.btnDuplicar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnDuplicar.Image = ((System.Drawing.Image)(resources.GetObject("btnDuplicar.Image")));
+            this.btnDuplicar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnDuplicar.Name = "btnDuplicar";
+            this.btnDuplicar.Size = new System.Drawing.Size(29, 38);
+            this.btnDuplicar.Text = "toolStripButton1";
+            this.btnDuplicar.ToolTipText = " ";
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 41);
+            // 
+            // btnGerarPdf
+            // 
+            this.btnGerarPdf.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.btnGerarPdf.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnGerarPdf.Image = ((System.Drawing.Image)(resources.GetObject("btnGerarPdf.Image")));
+            this.btnGerarPdf.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.btnGerarPdf.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnGerarPdf.Name = "btnGerarPdf";
+            this.btnGerarPdf.Padding = new System.Windows.Forms.Padding(5);
+            this.btnGerarPdf.Size = new System.Drawing.Size(38, 38);
+            this.btnGerarPdf.Text = "toolStripButton2";
+            this.btnGerarPdf.ToolTipText = " ";
+            this.btnGerarPdf.Click += new System.EventHandler(this.btnGerarPdf_Click);
             // 
             // TelaPrincipalForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(929, 609);
+            this.ClientSize = new System.Drawing.Size(1062, 812);
             this.Controls.Add(this.panelRegistros);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolbox);
             this.Controls.Add(this.menu);
             this.MainMenuStrip = this.menu;
-            this.MinimumSize = new System.Drawing.Size(944, 646);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MinimumSize = new System.Drawing.Size(1076, 846);
             this.Name = "TelaPrincipalForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -321,5 +361,8 @@
         private System.Windows.Forms.ToolStripMenuItem disciplinasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem matériasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem testesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripButton btnDuplicar;
+        private System.Windows.Forms.ToolStripButton btnGerarPdf;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
     }
 }

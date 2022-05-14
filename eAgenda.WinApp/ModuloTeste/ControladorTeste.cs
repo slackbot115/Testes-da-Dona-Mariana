@@ -3,8 +3,11 @@ using eAgenda.Dominio.ModuloMateria;
 using eAgenda.Dominio.ModuloQuestao;
 using eAgenda.Dominio.ModuloTeste;
 using eAgenda.WinApp.Compartilhado;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -76,9 +79,9 @@ namespace eAgenda.WinApp.ModuloTeste
 
         public override void Excluir()
         {
-            Teste questaoSelecionada = ObtemTesteSelecionada();
+            Teste testeSelecionada = ObtemTesteSelecionada();
 
-            if (questaoSelecionada == null)
+            if (testeSelecionada == null)
             {
                 MessageBox.Show("Selecione um teste primeiro",
                 "Exclusão de Tarefas", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -90,7 +93,7 @@ namespace eAgenda.WinApp.ModuloTeste
 
             if (resultado == DialogResult.OK)
             {
-                repositorioTeste.Excluir(questaoSelecionada);
+                repositorioTeste.Excluir(testeSelecionada);
                 CarregarQuestoes();
             }
         }
@@ -120,10 +123,77 @@ namespace eAgenda.WinApp.ModuloTeste
 
         public Teste ObtemTesteSelecionada()
         {
+            if (tabelaTestes == null)
+                tabelaTestes = new TabelaTestesControl();
+
             var numero = tabelaTestes.ObtemNumeroTesteSelecionado();
 
             return repositorioTeste.SelecionarPorNumero(numero);
         }
 
+        public void GerarPdf()
+        {
+            //Teste testeSelecionada = ObtemTesteSelecionada();
+
+            //if (testeSelecionada == null)
+            //{
+            //    MessageBox.Show("Selecione um teste primeiro",
+            //    "Gerador de PDF", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            //    return;
+            //}
+
+            var testeSelecionada = repositorioTeste.SelecionarPorNumero(2);
+
+            string arquivo = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\arquivo.pdf";
+            if(File.Exists(arquivo))
+                File.Delete(arquivo);
+
+            Document document = new Document(PageSize.A4);
+            document.SetMargins(25, 25, 30, 30);
+            PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(arquivo, FileMode.Create, FileAccess.ReadWrite));
+            document.Open();
+
+            Font fonte = FontFactory.GetFont(BaseFont.TIMES_ROMAN, 14);
+
+            Paragraph tituloProva = new Paragraph(testeSelecionada.Titulo, fonte);
+            tituloProva.Alignment = Element.ALIGN_CENTER;
+            
+            Paragraph disciplinaProva = new Paragraph($"Disciplina: {testeSelecionada.Disciplina.Nome}", fonte);
+            Paragraph materiaProva = new Paragraph($"Matéria: {testeSelecionada.Materia.Nome}", fonte);
+
+            document.Add(tituloProva);
+            document.Add(disciplinaProva);
+            document.Add(materiaProva);
+
+            for (int i = 0; i < testeSelecionada.Questoes.Count; i++)
+            {
+                Paragraph questao = new Paragraph($"Questão {i + 1}: {testeSelecionada.Questoes[i].Enunciado}", fonte);
+                document.Add(questao);
+                foreach (var alternativa in testeSelecionada.Questoes[i].Alternativas)
+                {
+                    Paragraph alternativaQuestao = new Paragraph($"{alternativa.Letra}: {alternativa.Descricao}", fonte);
+                    document.Add(alternativaQuestao);
+                }
+            }
+
+            document.NewPage();
+            Paragraph gabarito = new Paragraph("Gabarito", fonte);
+            tituloProva.Alignment = Element.ALIGN_CENTER;
+            document.Add(gabarito);
+
+            for (int i = 0; i < testeSelecionada.Questoes.Count; i++)
+            {
+                Paragraph questao = new Paragraph($"Questão {i + 1}: {testeSelecionada.Questoes[i].Enunciado}", fonte);
+                document.Add(questao);
+                
+                Alternativa alternativaCorreta;
+                alternativaCorreta = testeSelecionada.Questoes[i].Alternativas.Find(x => x.Correta);
+
+                Paragraph alternativaQuestao = new Paragraph($"{alternativaCorreta.Letra}: {alternativaCorreta}", fonte);
+                document.Add(alternativaQuestao);
+            }
+
+            document.Close();
+        }
     }
 }

@@ -21,6 +21,7 @@ namespace eAgenda.WinApp
         private ControladorBase controlador;
         private Dictionary<string, ControladorBase> controladores;
         private DataContext contextoDados;
+        private ControladorTeste controladorTeste;
 
         public TelaPrincipalForm(DataContext contextoDados)
         {
@@ -107,6 +108,11 @@ namespace eAgenda.WinApp
             controlador.Agrupar();
         }
 
+        private void btnGerarPdf_Click(object sender, EventArgs e)
+        {
+            controladorTeste.GerarPdf();
+        }
+
         private void ConfigurarBotoes(ConfiguracaoToolboxBase configuracao)
         {
             btnInserir.Enabled = configuracao.InserirHabilitado;
@@ -176,6 +182,8 @@ namespace eAgenda.WinApp
             var repositorioDisciplina = new RepositorioDisciplinaEmArquivo(contextoDados);
             var repositorioMateria = new RepositorioMateriaEmArquivo(contextoDados);
             var repositorioTeste = new RepositorioTesteEmArquivo(contextoDados);
+
+            controladorTeste = new ControladorTeste(repositorioTeste, repositorioDisciplina, repositorioMateria, repositorioQuestao);
 
             controladores = new Dictionary<string, ControladorBase>();
 

@@ -17,6 +17,5 @@ namespace eAgenda.Dominio.ModuloQuestao
         {
             return Descricao;
         }
-
     }
 }
