@@ -204,53 +204,63 @@ namespace eAgenda.WinApp.ModuloQuestao
 
             if (questao.Alternativas != null)
             {
-                for (int i = 0; i < questao.Alternativas.Count; i++)
-                {
-                    if (questao.Alternativas[i].Correta == true)
-                    {
-                        questao.Alternativas[i].Correta = questao.Alternativas[i].Correta = false;
-
-                        questao.Alternativas[listAlternativas.SelectedIndex].Correta = true;
-                        break;
-                    }
-                }
-
-                questao.Alternativas[listAlternativas.SelectedIndex].Correta = true;
-
-                listAlternativas.Items.Clear();
-                foreach (Alternativa alternativa in questao.Alternativas)
-                {
-                    if (alternativa.Correta)
-                        listAlternativas.Items.Add($"{alternativa.Letra}: {alternativa.Descricao} [CORRETA]");
-                    else
-                        listAlternativas.Items.Add($"{alternativa.Letra}: {alternativa.Descricao}");
-                }
+                ReceberAlternativasDaQuestao();
                 return;
             }
             else
             {
-                for (int i = 0; i < alternativasAdicionadas.Count; i++)
-                {
-                    if (alternativasAdicionadas[i].Correta == true)
-                    {
-                        alternativasAdicionadas[i].Correta = alternativasAdicionadas[i].Correta = false;
-
-                        alternativasAdicionadas[listAlternativas.SelectedIndex].Correta = true;
-                        break;
-                    }
-                }
-
-                alternativasAdicionadas[listAlternativas.SelectedIndex].Correta = true;
-
-                listAlternativas.Items.Clear();
-                foreach (Alternativa alternativa in alternativasAdicionadas)
-                {
-                    if (alternativa.Correta)
-                        listAlternativas.Items.Add($"{alternativa.Letra}: {alternativa.Descricao} [CORRETA]");
-                    else
-                        listAlternativas.Items.Add($"{alternativa.Letra}: {alternativa.Descricao}");
-                }
+                ReceberAlternativasDaClasse();
                 return;
+            }
+        }
+
+        private void ReceberAlternativasDaClasse()
+        {
+            for (int i = 0; i < alternativasAdicionadas.Count; i++)
+            {
+                if (alternativasAdicionadas[i].Correta == true)
+                {
+                    alternativasAdicionadas[i].Correta = alternativasAdicionadas[i].Correta = false;
+
+                    alternativasAdicionadas[listAlternativas.SelectedIndex].Correta = true;
+                    break;
+                }
+            }
+
+            alternativasAdicionadas[listAlternativas.SelectedIndex].Correta = true;
+
+            listAlternativas.Items.Clear();
+            foreach (Alternativa alternativa in alternativasAdicionadas)
+            {
+                if (alternativa.Correta)
+                    listAlternativas.Items.Add($"{alternativa.Letra}: {alternativa.Descricao} [CORRETA]");
+                else
+                    listAlternativas.Items.Add($"{alternativa.Letra}: {alternativa.Descricao}");
+            }
+        }
+
+        private void ReceberAlternativasDaQuestao()
+        {
+            for (int i = 0; i < questao.Alternativas.Count; i++)
+            {
+                if (questao.Alternativas[i].Correta == true)
+                {
+                    questao.Alternativas[i].Correta = questao.Alternativas[i].Correta = false;
+
+                    questao.Alternativas[listAlternativas.SelectedIndex].Correta = true;
+                    break;
+                }
+            }
+
+            questao.Alternativas[listAlternativas.SelectedIndex].Correta = true;
+
+            listAlternativas.Items.Clear();
+            foreach (Alternativa alternativa in questao.Alternativas)
+            {
+                if (alternativa.Correta)
+                    listAlternativas.Items.Add($"{alternativa.Letra}: {alternativa.Descricao} [CORRETA]");
+                else
+                    listAlternativas.Items.Add($"{alternativa.Letra}: {alternativa.Descricao}");
             }
         }
     }
