@@ -1,4 +1,4 @@
-﻿namespace eAgenda.WinApp.ModuloMateria
+﻿namespace Testes_da_Mariana.WinApp.ModuloMateria
 {
     partial class TabelaMateriasControl
     {

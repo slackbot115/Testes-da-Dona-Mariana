@@ -1,7 +1,7 @@
-﻿using eAgenda.Dominio.ModuloDisciplina;
-using eAgenda.Dominio.ModuloMateria;
-using eAgenda.Dominio.ModuloQuestao;
-using eAgenda.WinApp.Compartilhado;
+﻿using Testes_da_Mariana.Dominio.ModuloDisciplina;
+using Testes_da_Mariana.Dominio.ModuloMateria;
+using Testes_da_Mariana.Dominio.ModuloQuestao;
+using Testes_da_Mariana.WinApp.Compartilhado;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace eAgenda.WinApp.ModuloQuestao
+namespace Testes_da_Mariana.WinApp.ModuloQuestao
 {
     public class ControladorQuestao : ControladorBase
     {

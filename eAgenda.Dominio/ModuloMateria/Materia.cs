@@ -1,12 +1,12 @@
-﻿using eAgenda.Dominio.Compartilhado;
-using eAgenda.Dominio.ModuloDisciplina;
+﻿using Testes_da_Mariana.Dominio.Compartilhado;
+using Testes_da_Mariana.Dominio.ModuloDisciplina;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace eAgenda.Dominio.ModuloMateria
+namespace Testes_da_Mariana.Dominio.ModuloMateria
 {
     public class Materia : EntidadeBase<Materia>
     {

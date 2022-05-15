@@ -1,4 +1,4 @@
-﻿using eAgenda.Dominio.ModuloDisciplina;
+﻿using Testes_da_Mariana.Dominio.ModuloDisciplina;
 using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace eAgenda.WinApp.ModuloDisciplina
+namespace Testes_da_Mariana.WinApp.ModuloDisciplina
 {
     public partial class TelaCadastroDisciplinaForm : Form
     {

@@ -1,21 +1,19 @@
-﻿using eAgenda.Infra.Arquivos;
-using eAgenda.Infra.Arquivos.ModuloDisciplina;
-using eAgenda.Infra.Arquivos.ModuloMateria;
-using eAgenda.Infra.Arquivos.ModuloQuestao;
-using eAgenda.Infra.Arquivos.ModuloTarefa;
-using eAgenda.Infra.Arquivos.ModuloTeste;
-using eAgenda.WinApp.Compartilhado;
-using eAgenda.WinApp.ModuloDisciplina;
-using eAgenda.WinApp.ModuloMateria;
-using eAgenda.WinApp.ModuloQuestao;
-using eAgenda.WinApp.ModuloTarefa;
-using eAgenda.WinApp.ModuloTeste;
+﻿using Testes_da_Mariana.Infra.Arquivos.Compartilhado;
+using Testes_da_Mariana.Infra.Arquivos.ModuloDisciplina;
+using Testes_da_Mariana.Infra.Arquivos.ModuloMateria;
+using Testes_da_Mariana.Infra.Arquivos.ModuloQuestao;
+using Testes_da_Mariana.Infra.Arquivos.ModuloTeste;
+using Testes_da_Mariana.WinApp.Compartilhado;
+using Testes_da_Mariana.WinApp.ModuloDisciplina;
+using Testes_da_Mariana.WinApp.ModuloMateria;
+using Testes_da_Mariana.WinApp.ModuloQuestao;
+using Testes_da_Mariana.WinApp.ModuloTeste;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace eAgenda.WinApp
-{   
+namespace Testes_da_Mariana.WinApp
+{
     public partial class TelaPrincipalForm : Form
     {
         private ControladorBase controlador;
@@ -181,7 +179,6 @@ namespace eAgenda.WinApp
 
         private void InicializarControladores()
         {
-            var repositorioTarefa = new RepositorioTarefaEmArquivo(contextoDados);
             var repositorioQuestao = new RepositorioQuestaoEmArquivo(contextoDados);
             var repositorioDisciplina = new RepositorioDisciplinaEmArquivo(contextoDados);
             var repositorioMateria = new RepositorioMateriaEmArquivo(contextoDados);
@@ -189,7 +186,6 @@ namespace eAgenda.WinApp
 
             controladores = new Dictionary<string, ControladorBase>();
 
-            controladores.Add("Tarefas", new ControladorTarefa(repositorioTarefa));
             controladores.Add("Questões", new ControladorQuestao(repositorioQuestao, repositorioDisciplina, repositorioMateria));
             controladores.Add("Disciplinas", new ControladorDisciplina(repositorioDisciplina));
             controladores.Add("Matérias", new ControladorMateria(repositorioMateria, repositorioDisciplina));

@@ -1,4 +1,4 @@
-﻿namespace eAgenda.WinApp.ModuloTeste
+﻿namespace Testes_da_Mariana.WinApp.ModuloTeste
 {
     partial class TelaCadastroTesteForm
     {

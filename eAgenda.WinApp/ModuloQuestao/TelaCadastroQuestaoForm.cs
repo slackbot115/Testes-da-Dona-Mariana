@@ -1,6 +1,6 @@
-﻿using eAgenda.Dominio.ModuloDisciplina;
-using eAgenda.Dominio.ModuloMateria;
-using eAgenda.Dominio.ModuloQuestao;
+﻿using Testes_da_Mariana.Dominio.ModuloDisciplina;
+using Testes_da_Mariana.Dominio.ModuloMateria;
+using Testes_da_Mariana.Dominio.ModuloQuestao;
 using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace eAgenda.WinApp.ModuloQuestao
+namespace Testes_da_Mariana.WinApp.ModuloQuestao
 {
     public partial class TelaCadastroQuestaoForm : Form
     {

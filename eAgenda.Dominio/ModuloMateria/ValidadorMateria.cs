@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace eAgenda.Dominio.ModuloMateria
+namespace Testes_da_Mariana.Dominio.ModuloMateria
 {
     public class ValidadorMateria : AbstractValidator<Materia>
     {

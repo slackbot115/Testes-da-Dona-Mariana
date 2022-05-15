@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
-namespace eAgenda.Infra.Arquivos
+namespace Testes_da_Mariana.Infra.Arquivos.Compartilhado.Serializadores
 {
     public class SerializadorDadosEmBinario : ISerializador
     {

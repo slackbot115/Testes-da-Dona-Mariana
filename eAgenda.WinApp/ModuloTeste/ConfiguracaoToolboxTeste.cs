@@ -1,6 +1,6 @@
-﻿using eAgenda.WinApp.Compartilhado;
+﻿using Testes_da_Mariana.WinApp.Compartilhado;
 
-namespace eAgenda.WinApp.ModuloTeste
+namespace Testes_da_Mariana.WinApp.ModuloTeste
 {
     public class ConfiguracaoToolboxTeste : ConfiguracaoToolboxBase
     {

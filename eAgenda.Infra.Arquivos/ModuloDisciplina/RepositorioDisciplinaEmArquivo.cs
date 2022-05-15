@@ -1,4 +1,5 @@
-﻿using eAgenda.Dominio.ModuloDisciplina;
+﻿using Testes_da_Mariana.Dominio.ModuloDisciplina;
+using Testes_da_Mariana.Infra.Arquivos.Compartilhado;
 using FluentValidation;
 using FluentValidation.Results;
 using System;
@@ -7,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace eAgenda.Infra.Arquivos.ModuloDisciplina
+namespace Testes_da_Mariana.Infra.Arquivos.ModuloDisciplina
 {
     public class RepositorioDisciplinaEmArquivo : RepositorioEmArquivoBase<Disciplina>, IRepositorioDisciplina
     {

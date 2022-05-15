@@ -1,13 +1,13 @@
-﻿using eAgenda.Dominio.ModuloDisciplina;
-using eAgenda.Dominio.ModuloMateria;
-using eAgenda.Dominio.ModuloQuestao;
-using eAgenda.Dominio.ModuloTarefa;
-using eAgenda.Dominio.ModuloTeste;
+﻿using Testes_da_Mariana.Dominio.ModuloDisciplina;
+using Testes_da_Mariana.Dominio.ModuloMateria;
+using Testes_da_Mariana.Dominio.ModuloQuestao;
+using Testes_da_Mariana.Dominio.ModuloTeste;
+using Testes_da_Mariana.Infra.Arquivos.Compartilhado.Serializadores;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace eAgenda.Infra.Arquivos
+namespace Testes_da_Mariana.Infra.Arquivos.Compartilhado
 {
     [Serializable]
     public class DataContext //Container
@@ -16,7 +16,6 @@ namespace eAgenda.Infra.Arquivos
 
         public DataContext()
         {
-            Tarefas = new List<Tarefa>();
             Questoes = new List<Questao>();
             Disciplinas = new List<Disciplina>();
             Materias = new List<Materia>();
@@ -30,7 +29,6 @@ namespace eAgenda.Infra.Arquivos
             CarregarDados();
         }
 
-        public List<Tarefa> Tarefas { get; set; }
         public List<Questao> Questoes { get; set; }
         public List<Disciplina> Disciplinas { get; set; }
         public List<Materia> Materias { get; set; }
@@ -45,20 +43,17 @@ namespace eAgenda.Infra.Arquivos
         {
             var ctx = serializador.CarregarDadosDoArquivo();
 
-            if (ctx.Tarefas.Any())
-                this.Tarefas.AddRange(ctx.Tarefas);
+            if (ctx.Disciplinas.Any())
+                Disciplinas.AddRange(ctx.Disciplinas);
 
-            if(ctx.Disciplinas.Any())
-                this.Disciplinas.AddRange(ctx.Disciplinas);
+            if (ctx.Materias.Any())
+                Materias.AddRange(ctx.Materias);
 
-            if(ctx.Materias.Any())
-                this.Materias.AddRange(ctx.Materias);
+            if (ctx.Questoes.Any())
+                Questoes.AddRange(ctx.Questoes);
 
-            if(ctx.Questoes.Any())
-                this.Questoes.AddRange(ctx.Questoes);
-
-            if(ctx.Testes.Any())
-                this.Testes.AddRange(ctx.Testes);
+            if (ctx.Testes.Any())
+                Testes.AddRange(ctx.Testes);
         }
     }
 }

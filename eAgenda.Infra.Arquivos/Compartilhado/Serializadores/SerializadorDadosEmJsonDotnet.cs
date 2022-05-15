@@ -2,7 +2,7 @@
 using System;
 using System.IO;
 
-namespace eAgenda.Infra.Arquivos
+namespace Testes_da_Mariana.Infra.Arquivos.Compartilhado.Serializadores
 {
     public class SerializadorDadosEmJsonDotnet : ISerializador
     {
@@ -20,7 +20,7 @@ namespace eAgenda.Infra.Arquivos
             settings.Formatting = Formatting.Indented;
             settings.PreserveReferencesHandling = PreserveReferencesHandling.All;
 
-            var x  = JsonConvert.DeserializeObject<DataContext>(arquivoJson, settings);
+            var x = JsonConvert.DeserializeObject<DataContext>(arquivoJson, settings);
 
             return x;
         }

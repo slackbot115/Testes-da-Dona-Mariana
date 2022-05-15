@@ -1,5 +1,5 @@
-﻿using eAgenda.Dominio.ModuloDisciplina;
-using eAgenda.WinApp.Compartilhado;
+﻿using Testes_da_Mariana.Dominio.ModuloDisciplina;
+using Testes_da_Mariana.WinApp.Compartilhado;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace eAgenda.WinApp.ModuloDisciplina
+namespace Testes_da_Mariana.WinApp.ModuloDisciplina
 {
     public class ControladorDisciplina : ControladorBase
     {

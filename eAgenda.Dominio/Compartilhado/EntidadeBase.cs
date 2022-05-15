@@ -1,4 +1,4 @@
-﻿namespace eAgenda.Dominio.Compartilhado
+﻿namespace Testes_da_Mariana.Dominio.Compartilhado
 {
     public abstract class EntidadeBase<T>
     {

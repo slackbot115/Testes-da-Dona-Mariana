@@ -1,4 +1,4 @@
-﻿namespace eAgenda.Infra.Arquivos
+﻿namespace Testes_da_Mariana.Infra.Arquivos.Compartilhado.Serializadores
 {
     public interface ISerializador
     {

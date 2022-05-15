@@ -1,5 +1,5 @@
-﻿using eAgenda.Dominio.ModuloTeste;
-using eAgenda.WinApp.Compartilhado;
+﻿using Testes_da_Mariana.Dominio.ModuloTeste;
+using Testes_da_Mariana.WinApp.Compartilhado;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace eAgenda.WinApp.ModuloTeste
+namespace Testes_da_Mariana.WinApp.ModuloTeste
 {
     public partial class TabelaTestesControl : UserControl
     {

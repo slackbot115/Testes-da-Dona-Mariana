@@ -1,4 +1,5 @@
-﻿using eAgenda.Dominio.ModuloTeste;
+﻿using Testes_da_Mariana.Dominio.ModuloTeste;
+using Testes_da_Mariana.Infra.Arquivos.Compartilhado;
 using FluentValidation;
 using FluentValidation.Results;
 using System;
@@ -7,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace eAgenda.Infra.Arquivos.ModuloTeste
+namespace Testes_da_Mariana.Infra.Arquivos.ModuloTeste
 {
     public class RepositorioTesteEmArquivo : RepositorioEmArquivoBase<Teste>, IRepositorioTeste
     {

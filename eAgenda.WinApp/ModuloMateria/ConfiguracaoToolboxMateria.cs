@@ -1,11 +1,11 @@
-﻿using eAgenda.WinApp.Compartilhado;
+﻿using Testes_da_Mariana.WinApp.Compartilhado;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace eAgenda.WinApp.ModuloMateria
+namespace Testes_da_Mariana.WinApp.ModuloMateria
 {
     public class ConfiguracaoToolboxMateria : ConfiguracaoToolboxBase
     {

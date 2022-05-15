@@ -1,4 +1,4 @@
-﻿namespace eAgenda.WinApp
+﻿namespace Testes_da_Mariana.WinApp
 {
     partial class TelaPrincipalForm
     {
@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaPrincipalForm));
             this.menu = new System.Windows.Forms.MenuStrip();
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tarefasMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.disciplinasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.matériasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.questõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,7 +74,6 @@
             // cadastrosToolStripMenuItem
             // 
             this.cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tarefasMenuItem,
             this.disciplinasToolStripMenuItem,
             this.matériasToolStripMenuItem,
             this.questõesToolStripMenuItem,
@@ -84,39 +82,31 @@
             this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
             this.cadastrosToolStripMenuItem.Text = "Cadastros";
             // 
-            // tarefasMenuItem
-            // 
-            this.tarefasMenuItem.Name = "tarefasMenuItem";
-            this.tarefasMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.tarefasMenuItem.Size = new System.Drawing.Size(163, 26);
-            this.tarefasMenuItem.Text = "Tarefas";
-            this.tarefasMenuItem.Click += new System.EventHandler(this.tarefasMenuItem_Click);
-            // 
             // disciplinasToolStripMenuItem
             // 
             this.disciplinasToolStripMenuItem.Name = "disciplinasToolStripMenuItem";
-            this.disciplinasToolStripMenuItem.Size = new System.Drawing.Size(163, 26);
+            this.disciplinasToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.disciplinasToolStripMenuItem.Text = "Disciplinas";
             this.disciplinasToolStripMenuItem.Click += new System.EventHandler(this.disciplinasToolStripMenuItem_Click);
             // 
             // matériasToolStripMenuItem
             // 
             this.matériasToolStripMenuItem.Name = "matériasToolStripMenuItem";
-            this.matériasToolStripMenuItem.Size = new System.Drawing.Size(163, 26);
+            this.matériasToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.matériasToolStripMenuItem.Text = "Matérias";
             this.matériasToolStripMenuItem.Click += new System.EventHandler(this.matériasToolStripMenuItem_Click);
             // 
             // questõesToolStripMenuItem
             // 
             this.questõesToolStripMenuItem.Name = "questõesToolStripMenuItem";
-            this.questõesToolStripMenuItem.Size = new System.Drawing.Size(163, 26);
+            this.questõesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.questõesToolStripMenuItem.Text = "Questões";
             this.questõesToolStripMenuItem.Click += new System.EventHandler(this.questõesToolStripMenuItem_Click);
             // 
             // testesToolStripMenuItem
             // 
             this.testesToolStripMenuItem.Name = "testesToolStripMenuItem";
-            this.testesToolStripMenuItem.Size = new System.Drawing.Size(163, 26);
+            this.testesToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.testesToolStripMenuItem.Text = "Testes";
             this.testesToolStripMenuItem.Click += new System.EventHandler(this.testesToolStripMenuItem_Click);
             // 
@@ -149,7 +139,7 @@
             // btnInserir
             // 
             this.btnInserir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnInserir.Image = global::eAgenda.WinApp.Properties.Resources.outline_add_circle_outline_black_24dp;
+            this.btnInserir.Image = ((System.Drawing.Image)(resources.GetObject("btnInserir.Image")));
             this.btnInserir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnInserir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnInserir.Name = "btnInserir";
@@ -161,7 +151,7 @@
             // btnEditar
             // 
             this.btnEditar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnEditar.Image = global::eAgenda.WinApp.Properties.Resources.outline_mode_edit_black_24dp;
+            this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
             this.btnEditar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnEditar.Name = "btnEditar";
@@ -173,7 +163,7 @@
             // btnExcluir
             // 
             this.btnExcluir.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnExcluir.Image = global::eAgenda.WinApp.Properties.Resources.outline_delete_black_24dp;
+            this.btnExcluir.Image = ((System.Drawing.Image)(resources.GetObject("btnExcluir.Image")));
             this.btnExcluir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnExcluir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnExcluir.Name = "btnExcluir";
@@ -190,7 +180,7 @@
             // btnAdicionarItens
             // 
             this.btnAdicionarItens.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnAdicionarItens.Image = global::eAgenda.WinApp.Properties.Resources.library_add_FILL0_wght400_GRAD0_opsz24;
+            this.btnAdicionarItens.Image = ((System.Drawing.Image)(resources.GetObject("btnAdicionarItens.Image")));
             this.btnAdicionarItens.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnAdicionarItens.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAdicionarItens.Name = "btnAdicionarItens";
@@ -201,7 +191,7 @@
             // btnAtualizarItens
             // 
             this.btnAtualizarItens.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnAtualizarItens.Image = global::eAgenda.WinApp.Properties.Resources.check_box_FILL0_wght400_GRAD0_opsz24;
+            this.btnAtualizarItens.Image = ((System.Drawing.Image)(resources.GetObject("btnAtualizarItens.Image")));
             this.btnAtualizarItens.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnAtualizarItens.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAtualizarItens.Name = "btnAtualizarItens";
@@ -217,7 +207,7 @@
             // btnFiltrar
             // 
             this.btnFiltrar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnFiltrar.Image = global::eAgenda.WinApp.Properties.Resources.outline_filter_alt_black_24dp;
+            this.btnFiltrar.Image = ((System.Drawing.Image)(resources.GetObject("btnFiltrar.Image")));
             this.btnFiltrar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnFiltrar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnFiltrar.Name = "btnFiltrar";
@@ -233,7 +223,7 @@
             // btnAgrupar
             // 
             this.btnAgrupar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnAgrupar.Image = global::eAgenda.WinApp.Properties.Resources.outline_table_rows_black_24dp;
+            this.btnAgrupar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgrupar.Image")));
             this.btnAgrupar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btnAgrupar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnAgrupar.Name = "btnAgrupar";
@@ -326,7 +316,7 @@
             this.Name = "TelaPrincipalForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "e-Agenda 2.0";
+            this.Text = "Testes da Mariana";
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
             this.toolbox.ResumeLayout(false);
@@ -342,7 +332,6 @@
 
         private System.Windows.Forms.MenuStrip menu;
         private System.Windows.Forms.ToolStripMenuItem cadastrosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tarefasMenuItem;
         private System.Windows.Forms.ToolStrip toolbox;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.Panel panelRegistros;

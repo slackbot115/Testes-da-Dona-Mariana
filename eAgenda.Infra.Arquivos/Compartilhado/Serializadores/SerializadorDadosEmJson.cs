@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Text.Json;
 
-namespace eAgenda.Infra.Arquivos
+namespace Testes_da_Mariana.Infra.Arquivos.Compartilhado.Serializadores
 {
     internal class SerializadorDadosEmJson : ISerializador
     {

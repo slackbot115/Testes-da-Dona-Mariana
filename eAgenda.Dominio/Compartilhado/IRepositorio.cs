@@ -1,7 +1,7 @@
 ﻿using FluentValidation.Results;
 using System.Collections.Generic;
 
-namespace eAgenda.Dominio.Compartilhado
+namespace Testes_da_Mariana.Dominio.Compartilhado
 {
     public interface IRepositorio<T> where T : EntidadeBase<T>
     {

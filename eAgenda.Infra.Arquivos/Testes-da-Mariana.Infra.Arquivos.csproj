@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\eAgenda.Dominio\eAgenda.Dominio.csproj" />
+    <ProjectReference Include="..\eAgenda.Dominio\Testes-da-Mariana.Dominio.csproj" />
   </ItemGroup>
 
 </Project>

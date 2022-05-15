@@ -1,8 +1,9 @@
-using eAgenda.Infra.Arquivos;
+using Testes_da_Mariana.Infra.Arquivos.Compartilhado;
+using Testes_da_Mariana.Infra.Arquivos.Compartilhado.Serializadores;
 using System;
 using System.Windows.Forms;
 
-namespace eAgenda.WinApp
+namespace Testes_da_Mariana.WinApp
 {
     internal static class Program
     {

@@ -18,8 +18,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\eAgenda.Dominio\eAgenda.Dominio.csproj" />
-    <ProjectReference Include="..\eAgenda.Infra.Arquivos\eAgenda.Infra.Arquivos.csproj" />
+    <ProjectReference Include="..\eAgenda.Dominio\Testes-da-Mariana.Dominio.csproj" />
+    <ProjectReference Include="..\eAgenda.Infra.Arquivos\Testes-da-Mariana.Infra.Arquivos.csproj" />
   </ItemGroup>
 
   <ItemGroup>

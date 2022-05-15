@@ -1,10 +1,10 @@
-﻿using eAgenda.Dominio.Compartilhado;
+﻿using Testes_da_Mariana.Dominio.Compartilhado;
 using FluentValidation;
 using FluentValidation.Results;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace eAgenda.Infra.Arquivos
+namespace Testes_da_Mariana.Infra.Arquivos.Compartilhado
 {
     public abstract class RepositorioEmArquivoBase<T> where T : EntidadeBase<T>
     {

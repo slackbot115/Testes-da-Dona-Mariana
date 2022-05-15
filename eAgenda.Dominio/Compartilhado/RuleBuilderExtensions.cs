@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace eAgenda.Dominio
+namespace Testes_da_Mariana.Dominio.Compartilhado
 {
     public static class RuleBuilderExtensions
     {
@@ -29,7 +29,7 @@ namespace eAgenda.Dominio
 
     }
 
-    
+
 
 
 }

@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace eAgenda.WinApp.Compartilhado
+namespace Testes_da_Mariana.WinApp.Compartilhado
 {
     public static class DataGridViewExtensions
     {

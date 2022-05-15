@@ -1,4 +1,4 @@
-﻿namespace eAgenda.WinApp.ModuloQuestao
+﻿namespace Testes_da_Mariana.WinApp.ModuloQuestao
 {
     partial class TabelaQuestoesControl
     {

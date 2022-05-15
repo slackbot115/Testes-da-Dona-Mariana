@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace eAgenda.WinApp.Compartilhado
+namespace Testes_da_Mariana.WinApp.Compartilhado
 {
     public abstract class ControladorBase
     {

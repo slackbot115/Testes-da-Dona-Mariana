@@ -1,4 +1,4 @@
-﻿namespace eAgenda.WinApp.ModuloDisciplina
+﻿namespace Testes_da_Mariana.WinApp.ModuloDisciplina
 {
     partial class TelaCadastroDisciplinaForm
     {

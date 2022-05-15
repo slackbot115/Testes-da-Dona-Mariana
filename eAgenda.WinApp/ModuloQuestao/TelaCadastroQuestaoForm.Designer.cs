@@ -1,4 +1,4 @@
-﻿namespace eAgenda.WinApp.ModuloQuestao
+﻿namespace Testes_da_Mariana.WinApp.ModuloQuestao
 {
     partial class TelaCadastroQuestaoForm
     {
@@ -174,7 +174,7 @@
             // 
             this.comboDisciplina.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboDisciplina.FormattingEnabled = true;
-            this.comboDisciplina.Location = new System.Drawing.Point(85, 49);
+            this.comboDisciplina.Location = new System.Drawing.Point(98, 49);
             this.comboDisciplina.Name = "comboDisciplina";
             this.comboDisciplina.Size = new System.Drawing.Size(151, 28);
             this.comboDisciplina.TabIndex = 30;
