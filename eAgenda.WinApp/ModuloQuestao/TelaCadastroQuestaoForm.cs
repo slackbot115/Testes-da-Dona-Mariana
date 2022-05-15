@@ -118,6 +118,20 @@ namespace eAgenda.WinApp.ModuloQuestao
                 TelaPrincipalForm.Instancia.AtualizarRodape(erro);
                 DialogResult = DialogResult.None;
             }
+            if (alternativasAdicionadas.Count == 5)
+            {
+                for (int i = 0; i < alternativasAdicionadas.Count; i++)
+                {
+                    if (alternativasAdicionadas[i].Correta == true)
+                        return;
+                }
+
+                string erro = "Nenhuma das alternativas é correta, marque uma";
+
+                TelaPrincipalForm.Instancia.AtualizarRodape(erro);
+                DialogResult = DialogResult.None;
+            }
+
             if (resultadoValidacao.IsValid == false)
             {
                 string erro = resultadoValidacao.Errors[0].ErrorMessage;
@@ -168,6 +182,7 @@ namespace eAgenda.WinApp.ModuloQuestao
                 {
                     alternativa.Correta = true;
                     listAlternativas.Items.Add($"{alternativa.Letra}) {alternativa.Descricao} [CORRETA]");
+                    isCorreta.Enabled = false;
                 }
                 else
                 {
@@ -177,6 +192,65 @@ namespace eAgenda.WinApp.ModuloQuestao
                 alternativasAdicionadas.Add(alternativa);
                 isCorreta.Checked = false;
                 txtEnunciadoAlternativa.Text = String.Empty;
+            }
+        }
+
+        private void btnAlterarAlternativaCorreta_Click(object sender, EventArgs e)
+        {
+            if (listAlternativas.SelectedItem == null)
+            {
+                btnAlterarAlternativaCorreta.Visible = false;
+            }
+
+            if (questao.Alternativas != null)
+            {
+                for (int i = 0; i < questao.Alternativas.Count; i++)
+                {
+                    if (questao.Alternativas[i].Correta == true)
+                    {
+                        questao.Alternativas[i].Correta = questao.Alternativas[i].Correta = false;
+
+                        questao.Alternativas[listAlternativas.SelectedIndex].Correta = true;
+                        break;
+                    }
+                }
+
+                questao.Alternativas[listAlternativas.SelectedIndex].Correta = true;
+
+                listAlternativas.Items.Clear();
+                foreach (Alternativa alternativa in questao.Alternativas)
+                {
+                    if (alternativa.Correta)
+                        listAlternativas.Items.Add($"{alternativa.Letra}: {alternativa.Descricao} [CORRETA]");
+                    else
+                        listAlternativas.Items.Add($"{alternativa.Letra}: {alternativa.Descricao}");
+                }
+                return;
+            }
+            else
+            {
+                for (int i = 0; i < alternativasAdicionadas.Count; i++)
+                {
+                    if (alternativasAdicionadas[i].Correta == true)
+                    {
+                        alternativasAdicionadas[i].Correta = alternativasAdicionadas[i].Correta = false;
+
+                        alternativasAdicionadas[listAlternativas.SelectedIndex].Correta = true;
+                        break;
+                    }
+                }
+
+                alternativasAdicionadas[listAlternativas.SelectedIndex].Correta = true;
+
+                listAlternativas.Items.Clear();
+                foreach (Alternativa alternativa in alternativasAdicionadas)
+                {
+                    if (alternativa.Correta)
+                        listAlternativas.Items.Add($"{alternativa.Letra}: {alternativa.Descricao} [CORRETA]");
+                    else
+                        listAlternativas.Items.Add($"{alternativa.Letra}: {alternativa.Descricao}");
+                }
+                return;
             }
         }
     }
