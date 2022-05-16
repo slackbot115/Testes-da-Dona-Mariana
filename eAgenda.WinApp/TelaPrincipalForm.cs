@@ -108,6 +108,8 @@ namespace Testes_da_Mariana.WinApp
         private void btnGerarPdf_Click(object sender, EventArgs e)
         {
             ((ControladorTeste)controlador).GerarPdf();
+
+            MessageBox.Show("PDF gerado com sucesso, está na sua pasta de Documentos", "Gerador de PDF", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnDuplicar_Click(object sender, EventArgs e)

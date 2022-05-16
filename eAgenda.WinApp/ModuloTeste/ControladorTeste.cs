@@ -143,7 +143,7 @@ namespace Testes_da_Mariana.WinApp.ModuloTeste
                 return;
             }
 
-            string arquivo = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\arquivo.pdf";
+            string arquivo = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + $@"\{testeSelecionada.Titulo}.pdf";
             if(File.Exists(arquivo))
                 File.Delete(arquivo);
 
@@ -161,9 +161,12 @@ namespace Testes_da_Mariana.WinApp.ModuloTeste
             Paragraph informacoesProva = new Paragraph($"Disciplina: {testeSelecionada.Disciplina.Nome}", fonte);
             informacoesProva.Add(new Chunk(glue));
             informacoesProva.Add($"Matéria: {testeSelecionada.Materia.Nome}");
+            Paragraph dataProva = new Paragraph($"Data da Prova: {testeSelecionada.Data.Day}/{testeSelecionada.Data.Month}/{testeSelecionada.Data.Year}", fonte);
 
             document.Add(tituloProva);
             document.Add(informacoesProva);
+            document.Add(dataProva);
+            document.Add(new Paragraph(Environment.NewLine));
 
             for (int i = 0; i < testeSelecionada.Questoes.Count; i++)
             {
@@ -174,6 +177,7 @@ namespace Testes_da_Mariana.WinApp.ModuloTeste
                     Paragraph alternativaQuestao = new Paragraph($"{alternativa.Letra}: {alternativa.Descricao}", fonte);
                     document.Add(alternativaQuestao);
                 }
+                document.Add(new Paragraph(Environment.NewLine));
             }
 
             document.NewPage();
