@@ -20,6 +20,7 @@
   <ItemGroup>
     <ProjectReference Include="..\eAgenda.Dominio\Testes-da-Mariana.Dominio.csproj" />
     <ProjectReference Include="..\eAgenda.Infra.Arquivos\Testes-da-Mariana.Infra.Arquivos.csproj" />
+    <ProjectReference Include="..\Testes-da-Mariana.Infra.BancoDados\Testes-da-Mariana.Infra.BancoDados.csproj" />
   </ItemGroup>
 
   <ItemGroup>

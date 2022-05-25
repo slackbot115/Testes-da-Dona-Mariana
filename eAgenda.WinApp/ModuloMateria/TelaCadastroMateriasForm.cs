@@ -26,11 +26,11 @@ namespace Testes_da_Mariana.WinApp.ModuloMateria
 
         private void CarregarDisciplinas(List<Disciplina> disciplinas)
         {
-            comboDisciplina.Items.Clear();
+            comboDisciplinas.Items.Clear();
 
             foreach (var item in disciplinas)
             {
-                comboDisciplina.Items.Add(item);
+                comboDisciplinas.Items.Add(item);
             }
         }
 
@@ -46,7 +46,20 @@ namespace Testes_da_Mariana.WinApp.ModuloMateria
                 materia = value;
                 txtNumero.Text = materia.Numero.ToString();
                 txtNome.Text = materia.Nome;
-                comboDisciplina.SelectedItem = materia.Disciplina;
+
+                comboDisciplinas.SelectedItem = materia.Disciplina;
+                if (materia.Disciplina != null)
+                {
+                    foreach (Disciplina disciplina in comboDisciplinas.Items)
+                    {
+                        if (disciplina.Numero == materia.Disciplina.Numero)
+                        {
+                            comboDisciplinas.SelectedItem = disciplina;
+                            break;
+                        }
+                    }
+                }
+
                 if (materia.Serie == TipoSerieEnum.Primeira)
                     radioPrimeiraSerie.Checked = true;
                 else
@@ -57,7 +70,7 @@ namespace Testes_da_Mariana.WinApp.ModuloMateria
         private void btnGravar_Click(object sender, EventArgs e)
         {
             materia.Nome = txtNome.Text;
-            materia.Disciplina = (Disciplina) comboDisciplina.SelectedItem;
+            materia.Disciplina = (Disciplina) comboDisciplinas.SelectedItem;
             if (radioPrimeiraSerie.Checked)
                 materia.Serie = TipoSerieEnum.Primeira;
             else

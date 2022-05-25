@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Testes_da_Mariana.Infra.BancoDados;
 
 namespace Testes_da_Mariana.WinApp.ModuloQuestao
 {
@@ -34,6 +35,7 @@ namespace Testes_da_Mariana.WinApp.ModuloQuestao
             tela.Questao = new Questao();
 
             tela.GravarRegistro = repositorioQuestao.Inserir;
+            tela.GravarAlternativas = ((RepositorioQuestaoEmBancoDados)repositorioQuestao).AdicionarAlternativas;
 
             DialogResult resultado = tela.ShowDialog();
 
@@ -62,6 +64,7 @@ namespace Testes_da_Mariana.WinApp.ModuloQuestao
             tela.Questao = questaoSelecionada;
 
             tela.GravarRegistro = repositorioQuestao.Editar;
+            tela.GravarAlternativas = ((RepositorioQuestaoEmBancoDados)repositorioQuestao).AtualizarAlternativas;
 
             DialogResult resultado = tela.ShowDialog();
 

@@ -11,6 +11,7 @@ using Testes_da_Mariana.WinApp.ModuloTeste;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using Testes_da_Mariana.Infra.BancoDados;
 
 namespace Testes_da_Mariana.WinApp
 {
@@ -181,9 +182,15 @@ namespace Testes_da_Mariana.WinApp
 
         private void InicializarControladores()
         {
-            var repositorioQuestao = new RepositorioQuestaoEmArquivo(contextoDados);
-            var repositorioDisciplina = new RepositorioDisciplinaEmArquivo(contextoDados);
-            var repositorioMateria = new RepositorioMateriaEmArquivo(contextoDados);
+            var repositorioDisciplina = new RepositorioDisciplinaEmBancoDados();
+            //var repositorioMateria = new BackupRepositorioMateriaEmBancoDados();
+            var repositorioMateria = new RepositorioMateriaEmBancoDados();
+
+            //var repositorioQuestao = new RepositorioQuestaoEmArquivo(contextoDados);
+            var repositorioQuestao = new RepositorioQuestaoEmBancoDados();
+
+            //var repositorioDisciplina = new RepositorioDisciplinaEmArquivo(contextoDados);
+            //var repositorioMateria = new RepositorioMateriaEmArquivo(contextoDados);
             var repositorioTeste = new RepositorioTesteEmArquivo(contextoDados);
 
             controladores = new Dictionary<string, ControladorBase>();

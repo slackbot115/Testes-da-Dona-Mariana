@@ -11,7 +11,7 @@ namespace Testes_da_Mariana.Dominio.ModuloQuestao
 {
     public class Questao : EntidadeBase<Questao>
     {
-        private List<Alternativa> _alternativas;
+        private List<Alternativa> _alternativas = new List<Alternativa>();
 
         public string Enunciado { get; set; }
         public Disciplina Disciplina { get; set; }

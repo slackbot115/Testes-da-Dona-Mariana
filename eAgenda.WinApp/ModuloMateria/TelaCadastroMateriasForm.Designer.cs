@@ -34,11 +34,11 @@
             this.txtNumero = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboDisciplina = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.radioPrimeiraSerie = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.radioSegundaSerie = new System.Windows.Forms.RadioButton();
+            this.comboDisciplinas = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btnCancelar
@@ -99,15 +99,6 @@
             this.label4.TabIndex = 32;
             this.label4.Text = "Número:";
             // 
-            // comboDisciplina
-            // 
-            this.comboDisciplina.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboDisciplina.FormattingEnabled = true;
-            this.comboDisciplina.Location = new System.Drawing.Point(95, 94);
-            this.comboDisciplina.Name = "comboDisciplina";
-            this.comboDisciplina.Size = new System.Drawing.Size(177, 28);
-            this.comboDisciplina.TabIndex = 38;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -148,16 +139,25 @@
             this.radioSegundaSerie.Text = "2ª Série";
             this.radioSegundaSerie.UseVisualStyleBackColor = true;
             // 
+            // comboDisciplinas
+            // 
+            this.comboDisciplinas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboDisciplinas.FormattingEnabled = true;
+            this.comboDisciplinas.Location = new System.Drawing.Point(95, 94);
+            this.comboDisciplinas.Name = "comboDisciplinas";
+            this.comboDisciplinas.Size = new System.Drawing.Size(151, 28);
+            this.comboDisciplinas.TabIndex = 43;
+            // 
             // TelaCadastroMateriasForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(501, 253);
+            this.Controls.Add(this.comboDisciplinas);
             this.Controls.Add(this.radioSegundaSerie);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.radioPrimeiraSerie);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboDisciplina);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGravar);
             this.Controls.Add(this.txtNome);
@@ -187,10 +187,10 @@
         private System.Windows.Forms.TextBox txtNumero;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboDisciplina;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton radioPrimeiraSerie;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RadioButton radioSegundaSerie;
+        private System.Windows.Forms.ComboBox comboDisciplinas;
     }
 }

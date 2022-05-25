@@ -87,6 +87,8 @@ namespace Testes_da_Mariana.WinApp.ModuloQuestao
 
         public Func<Questao, ValidationResult> GravarRegistro { get; set; }
 
+        public Action<Questao, List<Alternativa>> GravarAlternativas { get; set; }
+
         public Questao Questao
         {
             get
@@ -118,19 +120,21 @@ namespace Testes_da_Mariana.WinApp.ModuloQuestao
                 TelaPrincipalForm.Instancia.AtualizarRodape(erro);
                 DialogResult = DialogResult.None;
             }
-            if (alternativasAdicionadas.Count == 5)
-            {
-                for (int i = 0; i < alternativasAdicionadas.Count; i++)
-                {
-                    if (alternativasAdicionadas[i].Correta == true)
-                        return;
-                }
+            //if (alternativasAdicionadas.Count == 5)
+            //{
+            //    //for (int i = 0; i < alternativasAdicionadas.Count; i++)
+            //    //{
+            //    //    if (alternativasAdicionadas[i].Correta == true)
+            //    //        break;
+            //    //}
 
-                string erro = "Nenhuma das alternativas é correta, marque uma";
+            //    string erro = "Nenhuma das alternativas é correta, marque uma";
 
-                TelaPrincipalForm.Instancia.AtualizarRodape(erro);
-                DialogResult = DialogResult.None;
-            }
+            //    TelaPrincipalForm.Instancia.AtualizarRodape(erro);
+            //    DialogResult = DialogResult.None;
+            //}
+
+            GravarAlternativas(questao, alternativasAdicionadas);
 
             if (resultadoValidacao.IsValid == false)
             {
