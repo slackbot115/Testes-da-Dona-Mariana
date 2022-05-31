@@ -30,6 +30,16 @@ namespace Testes_da_Mariana.WinApp.ModuloTeste
             CarregarMaterias(materias);
         }
 
+        public TelaCadastroTesteForm(List<Disciplina> disciplinas, List<Materia> materias, IRepositorioQuestao repositorioQuestao, Teste teste)
+        {
+            this.repositorioQuestao = repositorioQuestao;
+
+            InitializeComponent();
+            CarregarDisciplinas(disciplinas);
+            CarregarMaterias(materias);
+            CarregarQuestoes(teste.Questoes);
+        }
+
         private void CarregarMaterias(List<Materia> materias)
         {
             comboMateria.Items.Clear();
@@ -50,6 +60,16 @@ namespace Testes_da_Mariana.WinApp.ModuloTeste
             }
         }
 
+        private void CarregarQuestoes(List<Questao> questoes)
+        {
+            listQuestoes.Items.Clear();
+
+            foreach (var item in questoes)
+            {
+                listQuestoes.Items.Add(item);
+            }
+        }
+
         public Func<Teste, ValidationResult> GravarRegistro { get; set; }
 
         public Teste Teste
@@ -63,8 +83,34 @@ namespace Testes_da_Mariana.WinApp.ModuloTeste
                 teste = value;
                 txtNumero.Text = teste.Numero.ToString();
                 txtTitulo.Text = teste.Titulo;
+
                 comboDisciplina.SelectedItem = teste.Disciplina;
                 comboMateria.SelectedItem = teste.Materia;
+
+                if (teste.Disciplina != null)
+                {
+                    foreach (Disciplina disciplina in comboDisciplina.Items)
+                    {
+                        if (disciplina.Numero == teste.Disciplina.Numero)
+                        {
+                            comboDisciplina.SelectedItem = disciplina;
+                            break;
+                        }
+                    }
+                }
+
+                if (teste.Materia != null)
+                {
+                    foreach (Materia materia in comboMateria.Items)
+                    {
+                        if (materia.Numero == teste.Materia.Numero)
+                        {
+                            comboMateria.SelectedItem = materia;
+                            break;
+                        }
+                    }
+                }
+
                 dateData.Value = teste.Data;
                 txtNrQuestoes.Text = teste.NumeroQuestoes.ToString();
             }

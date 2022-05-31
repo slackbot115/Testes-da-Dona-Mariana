@@ -295,7 +295,7 @@ namespace Testes_da_Mariana.Infra.BancoDados
             comando.Parameters.AddWithValue("ID_MATERIA", questao.Materia.Numero);
         }
 
-        private void CarregarAlternativasQuestao(Questao questao)
+        public void CarregarAlternativasQuestao(Questao questao)
         {
             SqlConnection conexaoComBanco = new SqlConnection(enderecoBanco);
 

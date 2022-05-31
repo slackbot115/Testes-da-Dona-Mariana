@@ -191,7 +191,9 @@ namespace Testes_da_Mariana.WinApp
 
             //var repositorioDisciplina = new RepositorioDisciplinaEmArquivo(contextoDados);
             //var repositorioMateria = new RepositorioMateriaEmArquivo(contextoDados);
-            var repositorioTeste = new RepositorioTesteEmArquivo(contextoDados);
+            //var repositorioTeste = new RepositorioTesteEmArquivo(contextoDados);
+
+            var repositorioTeste = new RepositorioTesteEmBancoDados();
 
             controladores = new Dictionary<string, ControladorBase>();
 

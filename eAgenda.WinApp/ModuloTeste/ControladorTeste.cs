@@ -64,7 +64,7 @@ namespace Testes_da_Mariana.WinApp.ModuloTeste
             var disciplinas = repositorioDisciplina.SelecionarTodos();
             var materias = repositorioMateria.SelecionarTodos();
 
-            TelaCadastroTesteForm tela = new TelaCadastroTesteForm(disciplinas, materias, repositorioQuestao);
+            TelaCadastroTesteForm tela = new TelaCadastroTesteForm(disciplinas, materias, repositorioQuestao, testeSelecionada);
 
             tela.Teste = testeSelecionada;
 

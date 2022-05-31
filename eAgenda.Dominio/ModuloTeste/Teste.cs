@@ -17,11 +17,18 @@ namespace Testes_da_Mariana.Dominio.ModuloTeste
         public Disciplina Disciplina { get; set; }
         public Materia Materia { get; set; }
         public DateTime Data { get; set; }
-        public List<Questao> Questoes { get; set; }
+
+        private List<Questao> questoes = new List<Questao>();
+        public List<Questao> Questoes { get => questoes; set => questoes = value; }
 
         public Teste()
         {
             Data = DateTime.Now;
+        }
+
+        public void AdicionarQuestao(Questao questao)
+        {
+            questoes.Add(questao);
         }
 
         private Teste(Teste registro)

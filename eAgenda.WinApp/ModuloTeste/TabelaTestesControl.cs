@@ -35,8 +35,6 @@ namespace Testes_da_Mariana.WinApp.ModuloTeste
                 new DataGridViewTextBoxColumn { DataPropertyName = "Materia", HeaderText = "Materia"},
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Data", HeaderText = "Data"},
-                
-                new DataGridViewTextBoxColumn { DataPropertyName = "NumeroQuestoes", HeaderText = "Numero de Questões"},
             };
 
             return colunas;
